@@ -55,7 +55,7 @@ function InsertionSort(values) {
 }
 // console.log(InsertionSort(list));
 
-// To create a matrix with 100 random positions
+// To create an array with 100 random positions
 const generated = [];
 for (let i = 0; i < 100;) {
 	const value = Math.floor(Math.random() * 100 + 1);
