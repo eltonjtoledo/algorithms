@@ -1,5 +1,15 @@
 const list = [1, 5, 2, 83, 8, 30, 57, 34, 09, 16];
 
+// To create an array with 100 random positions teste
+const generated = [];
+for (let i = 0; i < 100;) {
+	const value = Math.floor(Math.random() * 1000 + 1);
+	if (!generated.includes(value)) {
+		generated.push(value);
+		i++;
+	}
+}
+
 // Bubble sort
 function BubbleSorting(values) {
 	let aux;
@@ -55,22 +65,31 @@ function InsertionSort(values) {
 }
 // console.log(InsertionSort(list));
 
-// To create an array with 100 random positions
-const generated = [];
-for (let i = 0; i < 100;) {
-	const value = Math.floor(Math.random() * 100 + 1);
-	if (!generated.includes(value)) {
-		generated.push(value);
-		i++;
+// Merge Sort
+function mergeSort(array) {
+	if(array.length <= 1){
+		return array;
 	}
+	const midle = Math.ceil(array.length / 2);
+	const left = array.slice(0, midle);
+	const right = array.slice(midle);
+
+	return merge(mergeSort(left), mergeSort(right));
 }
 
-console.log(generated ,InsertionSort(generated))
+function merge(left, right){
+	array = [];
 
+	while(left.length && right.length){
+		if(left[0] < right[0]){
+			array.push(left.shift())
+		}else{
+			array.push(right.shift())
+		}
+	}
 
+	return  array.concat(left).concat(right);
+}
 
-
-
-
-
-
+console.log(generated);
+console.log(mergeSort(generated));
